@@ -17,10 +17,11 @@ services:
   api:
     build: ./api/
     container_name: api
+    # working_dir: /var/www/html
+    # restart: unless-stopped
+    # volumes:
+    #     - ".:/var/www/html"
     command: gunicorn --bind 0.0.0.0:5000 main:app
-    restart: unless-stopped
-    volumes:
-        - ".:/var/www/html"
     ports:
       - "5000:5000"
     networks:

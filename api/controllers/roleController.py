@@ -10,7 +10,7 @@ def get_roles():
     roles = Role.query.all()
     return jsonify([role.json() for role in roles])
 
-@role_bp.route('<int:id>/', methods=['GET'])
+@role_bp.route('<int:id>', methods=['GET'])
 def get_role(id):
     role = Role.query.filter_by(id=id).first()
     return jsonify(role.json())
@@ -41,7 +41,7 @@ def create_role():
 
 
 @role_bp.route('<int:id>/users', methods=['GET'])
-def get_role(id):
+def get_users_by_role(id):
     users = db.session.query(User.id, User.name, Role.description.label("role"))\
     .join(Role, User.role_id == Role.id)\
     .filter(Role.id == id)\

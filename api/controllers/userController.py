@@ -2,6 +2,8 @@ from flask import Blueprint, request, jsonify
 from flasgger import swag_from
 from models.users import User
 from models.roles import Role
+from models.claims import Claim
+from models.usersClaims import UserClaim
 import utils
 from db import db
 
@@ -12,13 +14,13 @@ def get_users():
     users = User.query.all()
     return jsonify([user.json() for user in users])
 
-@user_bp.route('<int:id>', methods=['GET'])
+@user_bp.route('<int:id>/', methods=['GET'])
 def get_user(id):
     user = User.query.filter_by(id=id).first()
     return jsonify(user.json())
 
 @user_bp.route('/', methods=['POST'])
-@swag_from('docs/post.yaml')
+# @swag_from('docs/post.yaml')
 def create_user():
     name = request.json.get('name')
     email = request.json.get('email')

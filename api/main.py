@@ -3,10 +3,15 @@ from flasgger import Swagger
 from controllers.userController import user_bp
 from controllers.roleController import role_bp
 from werkzeug.middleware.proxy_fix import ProxyFix
+from dotenv import load_dotenv
 import pymysql
 import os
 
+#como o banco é mysql
+# pymysql.install_as_MySQLdb()
+
 #inicia a aplicação
+load_dotenv()
 app = Flask(__name__)
 
 #configura o Flask atrás de um servidor Proxy (nginx)
@@ -15,7 +20,7 @@ app.wsgi_app = ProxyFix(
 )
 
 #configura a conexão com o banco de dados
-db_uri = '{connection}://{user}:{pwd}@{host}:{port}/{db}'.format(connection=os.environ.get("DB_CONNECTION", "mysql"),
+db_uri = '{connection}://{user}:{pwd}@{host}:{port}/{db}'.format(connection=os.environ.get("DB_CONNECTION", "mysql+pymysql"),
                                                                    user=os.environ.get("DB_USERNAME", "root"),
                                                                    pwd=os.environ.get("DB_PASSWORD", "root"),
                                                                    host=os.environ.get("DB_HOST", "localhost"),
