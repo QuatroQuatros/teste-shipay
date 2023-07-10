@@ -51,4 +51,13 @@ Se for rodar utilizando containers:
    pip3 install -r requirements.txt
   ```
 
-7. Configure o .env
+7. Crie o arquivo .env:
+  ```bash
+   cp .env-example .env
+  ```
+8. Configure seu .env
+
+9. Inicie a aplicação:
+  ```bash
+   python3 ./main.py
+  ```
