@@ -89,5 +89,5 @@ Se for rodar utilizando containers:
    docker-compose up
    ```
 
-5. Acesse a documentação da API no link http://127.0.0.1:5000/apidocs
+7. Acesse a documentação da API no link http://127.0.0.1:5000/apidocs
 
