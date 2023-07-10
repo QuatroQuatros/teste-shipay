@@ -61,6 +61,7 @@ Se for rodar utilizando containers:
   ```bash
    python3 ./main.py
   ```
+10. Acesse a documentação da API no link http://127.0.0.1:5000/apidocs
 
 ## Rodando com docker
 1. Clone o repositório do projeto:
@@ -88,5 +89,5 @@ Se for rodar utilizando containers:
    docker-compose up
    ```
 
-5. Acesse a aplicação no link http://127.0.0.1:5000
+5. Acesse a documentação da API no link http://127.0.0.1:5000/apidocs
 
