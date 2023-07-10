@@ -84,7 +84,7 @@ Se for rodar utilizando containers:
    cd ..
   ```
 
-6. Suba os container com o docker compose:
+6. Suba os containers com o docker compose:
    ```bash
    docker-compose up
    ```
