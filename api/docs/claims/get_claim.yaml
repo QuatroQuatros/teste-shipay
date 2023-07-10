@@ -1,0 +1,38 @@
+tags: [Claims]
+summary: Obter uma claim
+description: Retorna os detalhes de uma claim específica do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da claim para a qual se deseja obter os detalhes
+    required: true
+    type: integer
+responses:
+  200:
+    description: Detalhes da claim retornados com sucesso
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Descrição da claim
+        id:
+          type: integer
+          example: 1
+        claim:
+          $ref: "#/definitions/Claim"
+  404:
+    description: Claim não encontrada
+  500:
+    description: Erro interno do servidor
+
+definitions:
+  Claim:
+    type: object
+    properties:
+      description:
+        type: string
+        example: mainteiner
+      id:
+        type: integer
+        example: 2

@@ -1,0 +1,28 @@
+tags: [User Claims]
+summary: Endpoint para criar uma user claim
+description: este endpoint recebe um conteúdo JSON, um campo 'user_id' e 'claim_id' e cria uma nova claim para o usuário informado
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: body
+    description: Objeto JSON
+    required: true
+    schema:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        claim_id:
+          type: integer
+          example: 2
+responses:
+  201:
+    description: User Claim criada com sucesso
+  400:
+    description: Requisição inválida
+  500:
+    description: Erro interno do servidor

@@ -1,0 +1,16 @@
+tags: [User]
+summary: Deletar usuário
+description: Deleta um usuário do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID do usuário a ser deletado
+    required: true
+    type: integer
+responses:
+  200:
+    description: Usuário deletado com sucesso
+  404:
+    description: Usuário não encontrado
+  500:
+    description: Erro interno do servidor

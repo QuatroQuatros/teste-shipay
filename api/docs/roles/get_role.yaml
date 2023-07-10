@@ -1,0 +1,38 @@
+tags: [Roles]
+summary: Obter uma role
+description: Retorna os detalhes de uma role específica do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da role para a qual se deseja obter os detalhes
+    required: true
+    type: integer
+responses:
+  200:
+    description: Detalhes da role retornados com sucesso
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Descrição da role
+        id:
+          type: integer
+          example: 1
+        role:
+          $ref: "#/definitions/Role"
+  404:
+    description: Role não encontrada
+  500:
+    description: Erro interno do servidor
+
+definitions:
+  Role:
+    type: object
+    properties:
+      description:
+        type: string
+        example: mainteiner
+      id:
+        type: integer
+        example: 2

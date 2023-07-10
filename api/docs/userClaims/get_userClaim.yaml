@@ -1,0 +1,41 @@
+tags: [User Claims]
+summary: Obter uma user claim
+description: Retorna os detalhes de uma user claim específica do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID do user claim para a qual se deseja obter os detalhes
+    required: true
+    type: integer
+responses:
+  200:
+    description: Detalhes da user eclaim retornados com sucesso
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Descrição da user claim
+        id:
+          type: integer
+          example: 1
+        claim:
+          $ref: "#/definitions/UserClaim"
+  404:
+    description: User Claim não encontrada
+  500:
+    description: Erro interno do servidor
+
+definitions:
+  UserClaim:
+    type: object
+    properties:
+      user_id:
+        type: integer
+        example: 1
+      claim_id:
+        type: integer
+        example: 2
+      id:
+        type: integer
+        example: 3

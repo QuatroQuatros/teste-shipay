@@ -1,0 +1,26 @@
+tags: [Roles]
+summary: Atualizar uma role
+description: Atualiza os detalhes de uma role específica no banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da role a ser atualizada
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: Detalhes atualizados da role
+    required: true
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: teste
+responses:
+  200:
+    description: Role atualizada com sucesso
+  404:
+    description: Role não encontrada
+  500:
+    description: Erro interno do servidor

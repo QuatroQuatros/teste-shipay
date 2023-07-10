@@ -1,0 +1,28 @@
+tags: [Roles]
+summary: Listar usuários por role
+description: Retorna uma lista de usuários com base no role_id deles
+parameters:
+  - name: id
+    in: path
+    description: ID da role para filtrar os usuários
+    required: true
+    type: integer
+responses:
+  200:
+    description: Lista de usuários retornada com sucesso
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            example: Carlin
+          role:
+            type: string
+            example: batata
+          user_id:
+            type: integer
+            example: 3
+  500:
+    description: Erro interno do servidor

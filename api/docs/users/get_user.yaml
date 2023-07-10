@@ -1,0 +1,41 @@
+tags: [User]
+summary: Obter usuário por ID
+description: Endpoint para obter as informações de um usuário pelo ID
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: id
+    description: ID do usuário
+    required: true
+    type: integer
+responses:
+  200:
+    description: Usuário encontrado
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: User created
+        user:
+          $ref: "#/definitions/User"
+  404:
+    description: Usuário não encontrado
+
+definitions:
+  User:
+    type: object
+    properties:
+      email:
+        type: string
+        example: carlos@carlos.com
+      id:
+        type: integer
+        example: 2
+      name:
+        type: string
+        example: Carlin
+      role_id:
+        type: integer
+        example: 1

@@ -1,0 +1,29 @@
+tags: [Claims]
+summary: Obter lista de claims
+description: Retorna uma lista de claims
+responses:
+  200:
+    description: Lista de claims retornada com sucesso
+    schema:
+      type: object
+      items:
+        type: object
+      properties:
+          claims:
+            type: array
+            items:
+              $ref: "#/definitions/Claim"
+
+  500:
+    description: Erro interno do servidor
+
+definitions:
+  Claim:
+    type: object
+    properties:
+      description:
+        type: string
+        example: update
+      id:
+        type: integer
+        example: 2
