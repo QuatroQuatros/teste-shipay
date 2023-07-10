@@ -1,0 +1,27 @@
+Endpoint posting one record
+---
+tags: [Roles]
+  summary: Endpoint to create a role
+  description: this endpoint receives a JSON content a 'description' field and creates a new role
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: body
+      name: body
+      description: JSON object containing 'description' property
+      required: true
+      schema:
+        type: object
+        properties:
+          description:
+            type: string
+            example: new role description
+  responses:
+    200:
+      description: Success
+    400:
+      description: Bad reqest
+    500:
+      description: Internal server error

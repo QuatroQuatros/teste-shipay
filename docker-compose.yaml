@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+
+  database:
+    image: mysql:5.7
+    # restart: always
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shipay
+      MYSQL_PASSWORD: root
+    ports:
+      - 3306:3306
+    networks:
+      - app
+
+  api:
+    build: ./api/
+    container_name: api
+    command: gunicorn --bind 0.0.0.0:5000 main:app
+    restart: unless-stopped
+    volumes:
+        - ".:/var/www/html"
+    ports:
+      - "5000:5000"
+    networks:
+      - app
+    depends_on:
+      - database
+
+  nginx:
+    build: ./nginx/
+    ports:
+      - "80:80"
+    networks:
+      - app
+      
+networks:
+    app:
+      driver: bridge
+

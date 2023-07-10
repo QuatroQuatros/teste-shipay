@@ -1,0 +1,34 @@
+Endpoint posting one record
+---
+tags: [User]
+parameters:
+    - name: body
+      in: body
+      required: true
+      schema:
+          type: object
+          properties:
+              username:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+              location_id:
+                type: integer
+          required:
+            - username
+            - email
+            - location_id
+  
+consumes:
+- application/json
+
+produces:
+- application/json
+
+responses:
+    201:
+        description: User saved successfully
+    409:
+        description: User email already in database
