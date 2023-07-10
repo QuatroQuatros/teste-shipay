@@ -1,0 +1,26 @@
+tags: [Claims]
+summary: Atualizar uma claim
+description: Atualiza os detalhes de uma claim específica no banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da claim a ser atualizada
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: Detalhes atualizados da claim
+    required: true
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: teste
+responses:
+  200:
+    description: Claim atualizada com sucesso
+  404:
+    description: Claim não encontrada
+  500:
+    description: Erro interno do servidor

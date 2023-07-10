@@ -1,0 +1,16 @@
+tags: [Roles]
+summary: Deletar role
+description: Deleta uma role do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da role a ser deletado
+    required: true
+    type: integer
+responses:
+  200:
+    description: Role deletada com sucesso
+  404:
+    description: Role não encontrado
+  500:
+    description: Erro interno do servidor

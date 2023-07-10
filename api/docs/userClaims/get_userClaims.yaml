@@ -1,0 +1,31 @@
+tags: [User Claims]
+summary: Obter lista de claims dos usuários
+description: Retorna uma lista de claims dos usuários
+responses:
+  200:
+    description: Lista de claims retornada com sucesso
+    schema:
+      type: object
+      items:
+        type: object
+      properties:
+          user-claims:
+            type: array
+            items:
+              $ref: "#/definitions/UserClaim"
+  500:
+    description: Erro interno do servidor
+
+definitions:
+  UserClaim:
+    type: object
+    properties:
+      user_id:
+        type: integer
+        example: 1
+      claim_id:
+        type: integer
+        example: 2
+      id:
+        type: integer
+        example: 3

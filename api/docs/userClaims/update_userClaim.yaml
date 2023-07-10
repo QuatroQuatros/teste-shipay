@@ -1,0 +1,29 @@
+tags: [User Claims]
+summary: Atualizar uma user claim
+description: Atualiza os detalhes de uma user claim específica no banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da user claim a ser atualizada
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: Detalhes atualizados da user claim
+    required: true
+    schema:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        claim_id:
+          type: integer
+          example: 2
+responses:
+  200:
+    description: User Claim atualizada com sucesso
+  404:
+    description: User Claim não encontrada
+  500:
+    description: Erro interno do servidor

@@ -1,0 +1,36 @@
+tags: [User]
+summary: Obter lista de claims do usuário
+description: Retorna uma lista de claims associadas a um usuário específico do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID do usuário para o qual se deseja obter as claims
+    required: true
+    type: integer
+responses:
+  200:
+    description: Lista de claims retornada com sucesso
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            example: joãozinho
+          email:
+            type: string
+            example: teste@teste.com
+          role:
+            type: string
+            example: maintainer
+          claim:
+            type: string
+            example: update
+          user_id:
+            type: integer
+            example: 1
+  404:
+    description: Usuário não encontrado
+  500:
+    description: Erro interno do servidor

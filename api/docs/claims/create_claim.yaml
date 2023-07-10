@@ -1,6 +1,6 @@
-tags: [Roles]
-summary: Endpoint para criar uma role
-description: este endpoint recebe um conteúdo JSON, um campo 'descrição' e cria uma nova role
+tags: [Claims]
+summary: Endpoint para criar uma claim
+description: este endpoint recebe um conteúdo JSON, um campo 'descrição' e cria uma nova claim
 consumes:
   - application/json
 produces:
@@ -15,10 +15,10 @@ parameters:
       properties:
         description:
           type: string
-          example: descrição da nova role
+          example: descrição da nova claim
 responses:
   201:
-    description: Role criada com sucesso
+    description: Claim criada com sucesso
   400:
     description: Requisição inválida
   500:

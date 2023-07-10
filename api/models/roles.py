@@ -27,6 +27,25 @@ class Role(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def delete_role(self):
-        db.session.delete(self)
-        db.session.commit()
+    @classmethod
+    def update_role(cls, role_id, data):
+        role = cls.find_role(role_id)
+
+        if role != None:
+            if 'description' in data and type(data['description']) == str:
+                role.description = data['description']
+
+            db.session.commit()
+            return role
+             
+        return None
+        
+
+    @classmethod
+    def delete_role(cls, id):
+        role = cls.find_role(id)
+        if role:
+            db.session.delete(role)
+            db.session.commit()
+            return True
+        return None

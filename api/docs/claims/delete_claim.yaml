@@ -1,0 +1,16 @@
+tags: [Claims]
+summary: Deletar claim
+description: Deleta uma claim do banco de dados
+parameters:
+  - name: id
+    in: path
+    description: ID da claim a ser deletado
+    required: true
+    type: integer
+responses:
+  200:
+    description: Claim deletada com sucesso
+  404:
+    description: Claim não encontrado
+  500:
+    description: Erro interno do servidor

@@ -1,0 +1,29 @@
+tags: [Roles]
+summary: Obter lista de roles
+description: Retorna uma lista de roles
+responses:
+  200:
+    description: Lista de roles retornada com sucesso
+    schema:
+      type: object
+      items:
+        type: object
+      properties:
+          roles:
+            type: array
+            items:
+              $ref: "#/definitions/Role"
+
+  500:
+    description: Erro interno do servidor
+
+definitions:
+  Role:
+    type: object
+    properties:
+      description:
+        type: string
+        example: mainteiner
+      id:
+        type: integer
+        example: 2
